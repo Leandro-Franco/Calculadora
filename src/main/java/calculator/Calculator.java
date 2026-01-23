@@ -3,6 +3,7 @@ package calculator;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
+import java.util.Objects;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -30,12 +31,13 @@ public class Calculator {
   String[] symbols = {
     "÷", "×", "-", "+"
     ,"C", "⌫", "%", "÷"
-    ,"hist"};
+    ,"hist", "="};
 
   //operadores e valores
   String A = "0";
   String B = null;
   String operator = null;
+  String operatorViewr = null;
 
   JFrame frame =  new JFrame("Calculator");
   JLabel displayLabel = new JLabel();
@@ -43,7 +45,6 @@ public class Calculator {
   JPanel buttonsPanel = new JPanel();
 
   public Calculator() {
-    frame.setVisible(true);
     frame.setSize(borderWidth, borderHeight);
     //to center the window
     frame.setLocationRelativeTo(null);
@@ -74,12 +75,12 @@ public class Calculator {
       button.setBorder(new LineBorder(customDark));
       button.setText(value);
       button.setFocusable(false);
-      if (Arrays.asList(symbols).contains(value)) {
-        button.setBackground(customBabyPink);
-        button.setForeground(customAquamarine);
-      }else if (value.contains("=")) {
+      if (value.contains("=")) {
         button.setBackground(customAquamarine);
         button.setForeground(customDark);
+      }else if (Arrays.asList(symbols).contains(value)) {
+        button.setBackground(customBabyPink);
+        button.setForeground(customAquamarine);
       } else {
         button.setBackground(customBabyPink);
         button.setForeground(customDark);
@@ -91,10 +92,73 @@ public class Calculator {
         public void actionPerformed(ActionEvent e) {
           JButton button = (JButton) e.getSource();
           String buttonText = button.getText();
+
+          //operações
           if (Arrays.asList(symbols).contains(buttonText)) {
-              if (buttonText.equals("C")){
-                clearContext();
+              if (buttonText.equals("C")) {
+                clearContext("0");
                 displayLabel.setText("0");
+              } else if (buttonText.equals("%")) {
+                double numDisplay = Double.parseDouble(displayLabel.getText());
+                displayLabel.setText(String.valueOf(
+                  removeZero(numDisplay / 100)
+                ));
+              } else if (buttonText.equals("⌫")) {
+                if(!Objects.equals(displayLabel.getText(), "0") && displayLabel.getText().length() > 1) {
+                  String newDisplay = displayLabel.getText().substring(
+                    0, displayLabel.getText().length() - 1);
+                  displayLabel.setText(newDisplay);
+                } else {
+                  displayLabel.setText("0");
+                }
+              } else if (buttonText.equals("hist")) {
+                displayLabel.setText("none implemeted");
+              } else {
+
+                //OPERAÇÕES
+
+                operator = buttonText;
+                if (buttonText.equals("=")) {
+                  try {
+                    if (A != null) {
+                      B = displayLabel.getText()
+                        .substring(displayLabel.getText()
+                          .indexOf(operatorViewr) + 1 );
+
+                      System.out.println("On conditional equal\n"
+                        + operatorViewr + " and " + operator);
+
+                      double aValue = Double.parseDouble(A);
+                      double bValue = Double.parseDouble(B);
+
+                      if ("+".equals(operatorViewr)) {
+                        displayLabel.setText(removeZero(aValue + bValue));
+                        clearContext("0");
+
+                      } else if ("-".equals(operatorViewr)) {
+                        displayLabel.setText(removeZero(aValue - bValue));
+                        clearContext("0");
+
+                      } else if ("×".equals(operatorViewr)) {
+                        displayLabel.setText(removeZero(aValue * bValue));
+                        clearContext("0");
+
+                      } else if ("÷".equals(operatorViewr)) {
+                        displayLabel.setText(removeZero(aValue / bValue));
+                        clearContext("0");
+                      }
+                    }
+                  } catch (Exception ex) {
+                    displayLabel.setText("error");
+                    throw new RuntimeException();
+                  }
+                } else {
+                  A = displayLabel.getText();
+                  displayLabel.setText(A + operator);
+                  operatorViewr = operator;
+                  System.out.println(operatorViewr + " and " + operator);
+                }
+
               }
           } else if (buttonText.equals(".")) {
               if (!displayLabel.getText().contains(buttonText)) {
@@ -112,11 +176,19 @@ public class Calculator {
         }
       });
     }
+    frame.setVisible(true);
   }
 
-  void clearContext(){
-    A = "0";
+  void clearContext(String e){
+    A = e;
     B = null;
     operator = null;
   };
+
+  String removeZero(double value){
+    if ( value % 1 == 0 ) {
+      return Integer.toString((int) value);
+    }
+    return Double.toString(value);
+  }
 }
