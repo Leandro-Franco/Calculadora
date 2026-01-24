@@ -1,6 +1,6 @@
-package App;
+package com.calculator.App;
 
-import calculator.Calculator;
+import com.calculator.Calculator;
 
 public class Main {
   public static void main(String[] args) throws Exception {
