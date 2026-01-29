@@ -35,7 +35,7 @@ public class Calculator {
   String[] symbols = {
     "÷", "×", "-", "+"
     ,"C", "⌫", "%", "÷"
-    ,"hist", "="};
+    ,"hist", "=" };
 
   //operadores e valores
   String A = "0";
@@ -49,6 +49,7 @@ public class Calculator {
   JPanel buttonsPanel = new JPanel();
 
     public Calculator() {
+      //SETUP FRAME
       frame.setSize(borderWidth, borderHeight);
       //to center the window
       frame.setLocationRelativeTo(null);
@@ -57,6 +58,7 @@ public class Calculator {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setLayout(new BorderLayout());
 
+      //SETUP LABEL
       displayLabel.setBackground(colors.customOnix);
       displayLabel.setForeground(colors.customWhite);
       displayLabel.setFont(new Font("Arial", Font.BOLD, 60));
@@ -64,14 +66,19 @@ public class Calculator {
       displayLabel.setText("0");
       displayLabel.setOpaque(true);
 
+
       panel.setLayout(new BorderLayout());
       panel.add(displayLabel);
       frame.add(panel, BorderLayout.NORTH);
 
+
+      //SETUP BUTTONS
       buttonsPanel.setLayout(new GridLayout(5, 4));
       buttonsPanel.setBackground(colors.customOnix);
       frame.add(buttonsPanel);
 
+
+      //CREATE BUTTONS
       for (int i = 0; i < buttonValues.length; i++) {
         JButton button = new JButton();
         String value = buttonValues[i];
@@ -91,7 +98,7 @@ public class Calculator {
         }
         buttonsPanel.add(button);
 
-        //actions.
+        //actions. //ACTION PERFORMED
         button.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
@@ -102,11 +109,15 @@ public class Calculator {
                 if (buttonText.equals("C")) {
                   c.clearContext("0");
                   displayLabel.setText("0");
+
+                  //MATH PERCENTAGE
                 } else if (buttonText.equals("%")) {
                   double numDisplay = Double.parseDouble(displayLabel.getText());
                   displayLabel.setText(String.valueOf(
-                    r.removeZero(numDisplay / 100)
+                    r.removeZero(math.calculatePercentage(numDisplay))
                   ));
+
+                  //HANDLE BACKSPACE
                 } else if (buttonText.equals("⌫")) {
                   if(!Objects.equals(displayLabel.getText(), "0") && displayLabel.getText().length() > 1) {
                     String newDisplay = displayLabel.getText().substring(
@@ -115,11 +126,14 @@ public class Calculator {
                   } else {
                     displayLabel.setText("0");
                   }
+
+
+                  //HANDLE HIST
                 } else if (buttonText.equals("hist")) {
                   displayLabel.setText("none implemeted");
                 } else {
 
-                  //OPERAÇÕES
+                  //OPERAÇÕES //HANDLE OPERATOR
                   operator = buttonText;
                   if (buttonText.equals("=")) {
                     try {
@@ -128,12 +142,8 @@ public class Calculator {
                           .substring(displayLabel.getText()
                             .indexOf(operatorViewr) + 1 );
 
-                        System.out.println("On conditional equal\n"
-                          + operatorViewr + " and " + operator);
-
-                        double aValue = Double.parseDouble(A);
-                        double bValue = Double.parseDouble(B);
-                        double result = math.calculate(aValue, bValue, operatorViewr);
+                        //CALCULATE RESULT
+                        double result = math.calculate(A, B, operatorViewr);
                         displayLabel.setText(String.valueOf(r.removeZero(result)));
                         c.clearContext("0");
 
@@ -146,12 +156,14 @@ public class Calculator {
                     A = displayLabel.getText();
                     displayLabel.setText(A + operator);
                     operatorViewr = operator;
-                    System.out.println(operatorViewr + " and " + operator);
                   }
 
                 }
+
+
+              //HANDLE NUMBERS AND DOT
             } else if (buttonText.equals(".")) {
-                if (!displayLabel.getText().contains(buttonText)) {
+              if (!displayLabel.getText().contains(buttonText)) {
                   displayLabel.setText(displayLabel.getText() + buttonText);
                 }else {
                   displayLabel.setText(displayLabel.getText());

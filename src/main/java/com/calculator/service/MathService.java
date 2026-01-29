@@ -1,7 +1,10 @@
 package com.calculator.service;
 
 public class MathService {
-  public double calculate(double aValue, double bValue, String operator) {
+  public double calculate(String A, String B, String operator) {
+    double aValue = Double.parseDouble(A);
+    double bValue = Double.parseDouble(B);
+
     switch (operator) {
       case "+":
         return aValue + bValue;
@@ -16,5 +19,9 @@ public class MathService {
         return aValue / bValue;
       default: return 0;
     }
+  }
+
+  public double calculatePercentage(double value) {
+    return value / 100;
   }
 }

@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c5c45506-b5a1-4a3c-9c9f-755e91fdd1e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/App/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/service/MathService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/service/MathService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,20 +35,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.Main.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.com.calculator.App.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "stage",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/leandro/Old/IdeaProjects/Estudos locais/Calculadora"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.calculator.App.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;stage&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/leandro/Old/IdeaProjects/Estudos locais/Calculadora&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.com.calculator.App.Main">
     <configuration name="App.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App.Main" />
