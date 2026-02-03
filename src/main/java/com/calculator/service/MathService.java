@@ -1,9 +1,9 @@
 package com.calculator.service;
 
 public class MathService {
-  public double calculate(String A, String B, String operator) {
-    double aValue = Double.parseDouble(A);
-    double bValue = Double.parseDouble(B);
+  public double calculate(Double A, Double B, String operator) {
+    double aValue = A;
+    double bValue = B;
 
     switch (operator) {
       case "+":

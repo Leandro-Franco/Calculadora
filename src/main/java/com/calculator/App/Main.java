@@ -1,10 +1,9 @@
 package com.calculator.App;
 
-import com.calculator.Calculator;
+import com.calculator.ui.CalculatorFrame;
 
 public class Main {
   public static void main(String[] args) throws Exception {
-    new Calculator();
-    System.out.println("Hello World!") ;
+    new CalculatorFrame();
   }
 }

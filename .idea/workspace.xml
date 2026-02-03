@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c5c45506-b5a1-4a3c-9c9f-755e91fdd1e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/App/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/App/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/constants/AppColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/constants/AppColors.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/service/MathService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/service/MathService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/ui/CalculatorFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/calculator/ui/CalculatorFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/calculator/utils/ClearContext.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
